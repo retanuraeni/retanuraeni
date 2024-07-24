@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat booking</title>
+
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-align: center; 
+            background-color: #1c1c1c; /* Dark background */
+            color: #fff; 
+            margin: 0;
+            padding: 0;
+        }
+
+        .inputForm,
+        .seatStructure {
+            margin: 20px auto; 
+            width: 80%; 
+            background-color: #1f1f1f; /* Dark grey background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: #fff; 
+        }
+        th, td {
+            border: 1px solid #fff; 
+            padding: 8px;
+            text-align: center;
+        }
+
+        input[type="checkbox"] {
+            display: none; 
+        }
+        input[type="checkbox"] + label {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background-color: #ccc;
+            text-align: center;
+            line-height: 25px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="checkbox"]:checked + label {
+            background-color: #e50914; /* Netflix red */
+            color: #fff;
+        }
+
+        .screen {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e50914; /* Netflix red */
+            text-transform: uppercase;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #1f1f1f; /* Dark grey background */
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        nav ul li img {
+            width: 20px; 
+            height: auto;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body onload="onLoaderFunc()">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Informasi Kontak</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #330000, #660000);
+        color: #fff;
+      }
+
+      nav {
+        background: #990000;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      nav .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li {
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1em;
+        position: relative;
+      }
+
+      nav ul li a::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #fff;
+        transition: width 0.3s;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+      }
+
+      nav ul li a:hover::after {
+        width: 100%;
+      }
+
+      nav ul li img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+      }
+
+      h1,
+      h2 {
+        color: #fff;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #4d0000;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+      }
+
+      .contact-info,
+      .address,
+      .operational-hours,
+      .contact-form,
+      .faq {
+        margin-bottom: 20px;
+      }
+
+      .contact-form input[type="text"],
+      .contact-form input[type="email"],
+      .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: border 0.3s;
+      }
+
+      .contact-form input[type="text"]:focus,
+      .contact-form input[type="email"]:focus,
+      .contact-form textarea:focus {
+        border-color: #990000;
+      }
+
+      .contact-form input[type="submit"] {
+        background: #990000;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .contact-form input[type="submit"]:hover {
+        background: #800000;
+      }
+
+      .faq h3 {
+        cursor: pointer;
+        margin: 0;
+        padding: 10px;
+        background: #990000;
+        color: #fff;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+
+      .faq h3:hover {
+        background: #800000;
+      }
+
+      .faq p {
+        display: none;
+        padding: 10px;
+        background: #660000;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <p class="logo">shbt<span>Amikom</span></p>
+      <ul>
+        <li><a href="index.html">main</a></li>
+        <li><a href="index.html#card">Schedules</a></li>
+        <li><a href="contact.html">contact</a></li>
+        <li>
+          <a href="akun.html"
+            ><img src="image/profil.png" alt="Profile Picture" />
+            <i class="fa fa-angle-down"></i
+          ></a>
+        </li>
+        <li>
+          <b
+            >
+              </b>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="inputForm">
+      <fieldset>
+        <legend>Enter Your Details</legend>
+        Name : <input type="text" id="Username" required /> Number of Seats :
+        <input type="number" id="Numseats" required /> <br /><br />
+        Select Showtime:
+        <select id="showtime" value="time">
+          <option value="11:30">11:30</option>
+          <option value="14:45">14:45</option>
+          <option value="16:05">16:05</option>
+          <option value="18:40">18:40</option>
+          <option value="21:00">21:00</option>
+          <option value="23:15">23:15</option>
+        </select>
+        <br /><br />
+        Select Payment Method:
+        <select id="paymentMethod" value="paymentMethod">
+          <option value="Transfer Bank">Transfer Bank</option>
+          <option value="Shoope Pay">Shoope Pay</option>
+          <option value="DANA">DANA</option>
+          <option value="OVO">OVO</option>
+        </select>
+        <br /><br />
+        Ticket Price: Rp<span id="ticketPrice">40.000</span> per seat
+        <br /><br />
+        <button onclick="takeData()">Start Selecting</button>
+      </fieldset>
+    </div>
+
+       <div class="seatStructure">
+      <table>
+        <tr>
+          <td colspan="14"><div class="screen">SCREEN</div></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td></td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>
+            <input type="checkbox" id="A1" class="seats" value="A1" /><label
+              for="A1"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="A2" class="seats" value="A2" /><label
+              for="A2"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="A3" class="seats" value="A3" /><label
+              for="A3"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="A4" class="seats" value="A4" /><label
+              for="A4"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="A5" class="seats" value="A5" /><label
+              for="A5"
+            ></label>
+          </td>
+          <td class="seatGap"></td>
+          <td>
+            <input type="checkbox" id="A6" class="seats" value="A6" /><label
+              for="A6"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="A7" class="seats" value="A7" /><label
+              for="A7"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="A8" class="seats" value="A8" /><label
+              for="A8"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="A9" class="seats" value="A9" /><label
+              for="A9"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="A10" class="seats" value="A10" /><label
+              for="A10"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="A11" class="seats" value="A11" /><label
+              for="A11"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="A12" class="seats" value="A12" /><label
+              for="A12"
+            ></label>
+          </td>
+        </tr>
+        <tr>
+          <td>B</td>
+          <td>
+            <input type="checkbox" id="B1" class="seats" value="B1" /><label
+              for="B1"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="B2" class="seats" value="B2" /><label
+              for="B2"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="B3" class="seats" value="B3" /><label
+              for="B3"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="B4" class="seats" value="B4" /><label
+              for="B4"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="B5" class="seats" value="B5" /><label
+              for="B5"
+            ></label>
+          </td>
+          <td class="seatGap"></td>
+          <td>
+            <input type="checkbox" id="B6" class="seats" value="B6" /><label
+              for="B6"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="B7" class="seats" value="B7" /><label
+              for="B7"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="B8" class="seats" value="B8" /><label
+              for="B8"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="B9" class="seats" value="B9" /><label
+              for="B9"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="B10" class="seats" value="B10" /><label
+              for="B10"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="B11" class="seats" value="B11" /><label
+              for="B11"
+            ></label>
+          </td>
+          <td>
+            <input type="checkbox" id="B12" class="seats" value="B12" /><label
+              for="B12"
+            ></label>
+          </td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td><input type="checkbox" id="C1" class="seats" value="C1" /><label for="C1"></label></td>
+            <td><input type="checkbox" id="C2" class="seats" value="C2" /><label for="C2"></label></td>
+            <td><input type="checkbox" id="C3" class="seats" value="C3" /><label for="C3"></label></td>
+            <td><input type="checkbox" id="C4" class="seats" value="C4" /><label for="C4"></label></td>
+            <td><input type="checkbox" id="C5" class="seats" value="C5" /><label for="C5"></label></td>
+            <td class="seatGap"></td>
+            <td><input type="checkbox" id="C6" class="seats" value="C6" /><label for="C6"></label></td>
+            <td><input type="checkbox" id="C7" class="seats" value="C7" /><label for="C7"></label></td>
+            <td><input type="checkbox" id="C8" class="seats" value="C8" /><label for="C8"></label></td>
+            <td><input type="checkbox" id="C9" class="seats" value="C9" /><label for="C9"></label></td>
+            <td><input type="checkbox" id="C10" class="seats" value="C10" /><label for="C10"></label></td>
+            <td><input type="checkbox" id="C11" class="seats" value="C11" /><label for="C11"></label></td>
+            <td><input type="checkbox" id="C12" class="seats" value="C12" /><label for="C12"></label></td>
+          </tr>
+          <tr>
+            <td>D</td>
+            <td><input type="checkbox" id="D1" class="seats" value="D1" /><label for="D1"></label></td>
+            <td><input type="checkbox" id="D2" class="seats" value="D2" /><label for="D2"></label></td>
+            <td><input type="checkbox" id="D3" class="seats" value="D3" /><label for="D3"></label></td>
+            <td><input type="checkbox" id="D4" class="seats" value="D4" /><label for="D4"></label></td>
+            <td><input type="checkbox" id="D5" class="seats" value="D5" /><label for="D5"></label></td>
+            <td class="seatGap"></td>
+            <td><input type="checkbox" id="D6" class="seats" value="D6" /><label for="D6"></label></td>
+            <td><input type="checkbox" id="D7" class="seats" value="D7" /><label for="D7"></label></td>
+            <td><input type="checkbox" id="D8" class="seats" value="D8" /><label for="D8"></label></td>
+            <td><input type="checkbox" id="D9" class="seats" value="D9" /><label for="D9"></label></td>
+            <td><input type="checkbox" id="D10" class="seats" value="D10" /><label for="D10"></label></td>
+            <td><input type="checkbox" id="D11" class="seats" value="D11" /><label for="D11"></label></td>
+            <td><input type="checkbox" id="D12" class="seats" value="D12" /><label for="D12"></label></td>
+          </tr>
+          <tr>
+            <td>E</td>
+            <td><input type="checkbox" id="E1" class="seats" value="E1" /><label for="E1"></label></td>
+            <td><input type="checkbox" id="E2" class="seats" value="E2" /><label for="E2"></label></td>
+            <td><input type="checkbox" id="E3" class="seats" value="E3" /><label for="E3"></label></td>
+            <td><input type="checkbox" id="E4" class="seats" value="E4" /><label for="E4"></label></td>
+            <td><input type="checkbox" id="E5" class="seats" value="E5" /><label for="E5"></label></td>
+            <td class="seatGap"></td>
+            <td><input type="checkbox" id="E6" class="seats" value="E6" /><label for="E6"></label></td>
+            <td><input type="checkbox" id="E7" class="seats" value="E7" /><label for="E7"></label></td>
+            <td><input type="checkbox" id="E8" class="seats" value="E8" /><label for="E8"></label></td>
+            <td><input type="checkbox" id="E9" class="seats" value="E9" /><label for="E9"></label></td>
+            <td><input type="checkbox" id="E10" class="seats" value="E10" /><label for="E10"></label></td>
+            <td><input type="checkbox" id="E11" class="seats" value="E11" /><label for="E11"></label></td>
+            <td><input type="checkbox" id="E12" class="seats" value="E12" /><label for="E12"></label></td>
+          </tr>
+          <tr>
+            <td>F</td>
+            <td><input type="checkbox" id="F1" class="seats" value="F1" /><label for="F1"></label></td>
+            <td><input type="checkbox" id="F2" class="seats" value="F2" /><label for="F2"></label></td>
+            <td><input type="checkbox" id="F3" class="seats" value="F3" /><label for="F3"></label></td>
+            <td><input type="checkbox" id="F4" class="seats" value="F4" /><label for="F4"></label></td>
+            <td><input type="checkbox" id="F5" class="seats" value="F5" /><label for="F5"></label></td>
+            <td class="seatGap"></td>
+            <td><input type="checkbox" id="F6" class="seats" value="F6" /><label for="F6"></label></td>
+            <td><input type="checkbox" id="F7" class="seats" value="F7" /><label for="F7"></label></td>
+            <td><input type="checkbox" id="F8" class="seats" value="F8" /><label for="F8"></label></td>
+            <td><input type="checkbox" id="F9" class="seats" value="F9" /><label for="F9"></label></td>
+            <td><input type="checkbox" id="F10" class="seats" value="F10" /><label for="F10"></label></td>
+            <td><input type="checkbox" id="F11" class="seats" value="F11" /><label for="F11"></label></td>
+            <td><input type="checkbox" id="F12" class="seats" value="F12" /><label for="F12"></label></td>
+          </tr>
+          <tr>
+            <td>G</td>
+            <td><input type="checkbox" id="G1" class="seats" value="G1" /><label for="G1"></label></td>
+            <td><input type="checkbox" id="G2" class="seats" value="G2" /><label for="G2"></label></td>
+            <td><input type="checkbox" id="G3" class="seats" value="G3" /><label for="G3"></label></td>
+            <td><input type="checkbox" id="G4" class="seats" value="G4" /><label for="G4"></label></td>
+            <td><input type="checkbox" id="G5" class="seats" value="G5" /><label for="G5"></label></td>
+            <td class="seatGap"></td>
+            <td><input type="checkbox" id="G6" class="seats" value="G6" /><label for="G6"></label></td>
+            <td><input type="checkbox" id="G7" class="seats" value="G7" /><label for="G7"></label></td>
+            <td><input type="checkbox" id="G8" class="seats" value="G8" /><label for="G8"></label></td>
+            <td><input type="checkbox" id="G9" class="seats" value="G9" /><label for="G9"></label></td>
+            <td><input type="checkbox" id="G10" class="seats" value="G10" /><label for="G10"></label></td>
+            <td><input type="checkbox" id="G11" class="seats" value="G11" /><label for="G11"></label></td>
+            <td><input type="checkbox" id="G12" class="seats" value="G12" /><label for="G12"></label></td>
+          </tr>
+          <tr>
+            <td>H</td>
+            <td><input type="checkbox" id="H1" class="seats" value="H1" /><label for="H1"></label></td>
+            <td><input type="checkbox" id="H2" class="seats" value="H2" /><label for="H2"></label></td>
+            <td><input type="checkbox" id="H3" class="seats" value="H3" /><label for="H3"></label></td>
+            <td><input type="checkbox" id="H4" class="seats" value="H4" /><label for="H4"></label></td>
+            <td><input type="checkbox" id="H5" class="seats" value="H5" /><label for="H5"></label></td>
+            <td class="seatGap"></td>
+            <td><input type="checkbox" id="H6" class="seats" value="H6" /><label for="H6"></label></td>
+            <td><input type="checkbox" id="H7" class="seats" value="H7" /><label for="H7"></label></td>
+            <td><input type="checkbox" id="H8" class="seats" value="H8" /><label for="H8"></label></td>
+            <td><input type="checkbox" id="H9" class="seats" value="H9" /><label for="H9"></label></td>
+            <td><input type="checkbox" id="H10" class="seats" value="H10" /><label for="H10"></label></td>
+            <td><input type="checkbox" id="H11" class="seats" value="H11" /><label for="H11"></label></td>
+            <td><input type="checkbox" id="H12" class="seats" value="H12" /><label for="H12"></label></td>
+          </tr>
+          <tr>
+            <td>I</td>
+            <td><input type="checkbox" id="I1" class="seats" value="I1" /><label for="I1"></label></td>
+            <td><input type="checkbox" id="I2" class="seats" value="I2" /><label for="I2"></label></td>
+            <td><input type="checkbox" id="I3" class="seats" value="I3" /><label for="I3"></label></td>
+            <td><input type="checkbox" id="I4" class="seats" value="I4" /><label for="I4"></label></td>
+            <td><input type="checkbox" id="I5" class="seats" value="I5" /><label for="I5"></label></td>
+            <td class="seatGap"></td>
+            <td><input type="checkbox" id="I6" class="seats" value="I6" /><label for="I6"></label></td>
+            <td><input type="checkbox" id="I7" class="seats" value="I7" /><label for="I7"></label></td>
+            <td><input type="checkbox" id="I8" class="seats" value="I8" /><label for="I8"></label></td>
+            <td><input type="checkbox" id="I9" class="seats" value="I9" /><label for="I9"></label></td>
+            <td><input type="checkbox" id="I10" class="seats" value="I10" /><label for="I10"></label></td>
+            <td><input type="checkbox" id="I11" class="seats" value="I11" /><label for="I11"></label></td>
+            <td><input type="checkbox" id="I12" class="seats" value="I12" /><label for="I12"></label></td>
+          </tr>
+          <tr>
+            <td>J</td>
+            <td><input type="checkbox" id="J1" class="seats" value="J1" /><label for="J1"></label></td>
+            <td><input type="checkbox" id="J2" class="seats" value="J2" /><label for="J2"></label></td>
+            <td><input type="checkbox" id="J3" class="seats" value="J3" /><label for="J3"></label></td>
+            <td><input type="checkbox" id="J4" class="seats" value="J4" /><label for="J4"></label></td>
+            <td><input type="checkbox" id="J5" class="seats" value="J5" /><label for="J5"></label></td>
+            <td class="seatGap"></td>
+            <td><input type="checkbox" id="J6" class="seats" value="J6" /><label for="J6"></label></td>
+            <td><input type="checkbox" id="J7" class="seats" value="J7" /><label for="J7"></label></td>
+            <td><input type="checkbox" id="J8" class="seats" value="J8" /><label for="J8"></label></td>
+            <td><input type="checkbox" id="J9" class="seats" value="J9" /><label for="J9"></label></td>
+            <td><input type="checkbox" id="J10" class="seats" value="J10" /><label for="J10"></label></td>
+            <td><input type="checkbox" id="J11" class="seats" value="J11" /><label for="J11"></label></td>
+            <td><input type="checkbox" id="J12" class="seats" value="J12" /><label for="J12"></label></td>
+          </tr>                                                      
+      </table>
+  
+      <script>
+        var pricePerSeat = 40000; 
+    
+    function takeData() {
+      if (document.getElementById("Username").value === "" || document.getElementById("Numseats").value === "") {
+        alert("Please enter your name and number of seats");
+      } else {
+        document.querySelector(".seatStructure").style.display = "block";
+      }
+    }
+    
+    function updateTextArea() {
+      var numSeats = parseInt(document.getElementById("Numseats").value);
+      var checkedSeats = document.querySelectorAll('input[type="checkbox"]:checked').length;
+      
+      if (checkedSeats === numSeats) {
+        document.getElementById("nameDisplay").value = document.getElementById("Username").value;
+        document.getElementById("NumberDisplay").value = numSeats;
+        
+        var seats = [];
+        var totalSeats = document.querySelectorAll('input[type="checkbox"]');
+        for (var i = 0; i < totalSeats.length; i++) {
+          if (totalSeats[i].checked) {
+            seats.push(totalSeats[i].value);
+          }
+        }
+        document.getElementById("seatsDisplay").value = seats.join(", ");
+        
+        document.getElementById("showtimeDisplay").value = document.getElementById("showtime").value;
+        document.getElementById("paymentDisplay").value = document.getElementById("paymentMethod").value;
+        
+        var totalPrice = numSeats * pricePerSeat;
+        document.getElementById("totalDisplay").value = "IDR " + totalPrice.toLocaleString(); // Displaying price in IDR format
+      } else {
+        alert("Please select the correct number of seats or enter the number of seats");
+      }
+    }
+
+    function onLoaderFunc() {
+      document.querySelector(".seatStructure").style.display = "none";
+    }
+      </script>
+      
+
+    </body>
+  </html>
+
+<head>
+  <style>
+    .displayerbox {
+      display: none;
+    }
+    .confirm-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .confirm-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body onload="onLoaderFunc()">
+  <!-- Your form elements and seat selection here -->
+
+  <button class="confirm-button" onclick="updateTextArea()">Confirm Selection</button>
+
+  <div class="displayerbox">
+    <table class="Displaytable">
+      <tr>
+        <th>Name</th>
+        <td><textarea id="nameDisplay"></textarea></td>
+      </tr>
+      <tr>
+        <th>Number of Seats</th>
+        <td><textarea id="NumberDisplay"></textarea></td>
+      </tr>
+      <tr>
+        <th>Seats</th>
+        <td><textarea id="seatsDisplay"></textarea></td>
+      </tr>
+      <tr>
+        <th>Showtime</th>
+        <td><textarea id="showtimeDisplay"></textarea></td>
+      </tr>
+      <tr>
+        <th>Payment Method</th>
+        <td><textarea id="paymentDisplay"></textarea></td>
+      </tr>
+      <tr>
+        <th>Total Price</th>
+        <td><textarea id="totalDisplay"></textarea></td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+    var pricePerSeat = 40000;
+
+    function takeData() {
+      if (document.getElementById("Username").value === "" || document.getElementById("Numseats").value === "") {
+        alert("Please enter your name and number of seats");
+      } else {
+        document.querySelector(".seatStructure").style.display = "block";
+      }
+    }
+
+    function updateTextArea() {
+      var numSeats = parseInt(document.getElementById("Numseats").value);
+      var checkedSeats = document.querySelectorAll('input[type="checkbox"]:checked').length;
+
+      if (checkedSeats === numSeats) {
+        document.getElementById("nameDisplay").value = document.getElementById("Username").value;
+        document.getElementById("NumberDisplay").value = numSeats;
+
+        var seats = [];
+        var totalSeats = document.querySelectorAll('input[type="checkbox"]');
+        for (var i = 0; i < totalSeats.length; i++) {
+          if (totalSeats[i].checked) {
+            seats.push(totalSeats[i].value);
+          }
+        }
+        document.getElementById("seatsDisplay").value = seats.join(", ");
+
+        document.getElementById("showtimeDisplay").value = document.getElementById("showtime").value;
+        document.getElementById("paymentDisplay").value = document.getElementById("paymentMethod").value;
+
+        var totalPrice = numSeats * pricePerSeat;
+        document.getElementById("totalDisplay").value = "IDR " + totalPrice.toLocaleString(); // Displaying price in IDR format
+
+        document.querySelector(".displayerbox").style.display = "block"; // Show the displayer box
+      } else {
+        alert("Please select the correct number of seats or enter the number of seats");
+      }
+    }
+
+    function onLoaderFunc() {
+      document.querySelector(".seatStructure").style.display = "none";
+      document.querySelector(".displayerbox").style.display = "none";
+    }
+  </script>
+</body>
+    </body>
+  </html>

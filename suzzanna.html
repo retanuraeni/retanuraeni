@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Film Suzzanna</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --primary-color: #1f1f1f;
+        --secondary-color: #ffffff;
+        --accent-color: #ff1717;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--primary-color);
+        padding: 10px 20px;
+        border-bottom: 2px solid var(--accent-color);
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--accent-color);
+      }
+
+      .logo span {
+        color: var(--secondary-color);
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 24px;
+        color: var(--secondary-color);
+        cursor: pointer;
+        flex-direction: column;
+      }
+
+      .menu-toggle div {
+        width: 25px;
+        height: 3px;
+        background-color: var(--secondary-color);
+        margin: 3px 0;
+        transition: 0.3s;
+      }
+
+      #menu-box {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+
+      #menu-box li {
+        margin-left: 10px;
+      }
+
+      #menu-box a {
+        color: var(--secondary-color);
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s ease;
+      }
+
+      #menu-box a:hover {
+        color: var(--accent-color);
+      }
+
+      #menu-box img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+
+      #menu-box b {
+        color: var(--accent-color);
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: flex;
+        }
+
+        #menu-box {
+          display: none;
+          position: absolute;
+          top: 50px;
+          left: 0;
+          right: 0;
+          background-color: var(--primary-color);
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 20px;
+        }
+
+        #menu-box.active {
+          display: flex;
+        }
+
+        #menu-box li {
+          margin: 10px 0;
+        }
+      }
+
+      .content {
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 100%;
+        margin: 0 auto;
+        flex-direction: row; /* Default to row for desktop */
+      }
+
+      .image-container {
+        flex: 1;
+        position: relative;
+      }
+
+      .image-container img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .buy-ticket {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--accent-color);
+        color: var(--secondary-color);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .buy-ticket:hover {
+        background-color: #cc0000;
+      }
+
+      .info-container {
+        flex: 2;
+      }
+
+      h1 {
+        margin-top: 0;
+        color: var(--secondary-color);
+      }
+
+      .watch-trailer {
+        display: inline-block;
+        border: 1px solid var(--secondary-color);
+        padding: 5px 10px;
+        text-decoration: none;
+        color: var(--secondary-color);
+        margin-top: 10px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .watch-trailer:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column; /* Stack items vertically on mobile */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <p class="logo">shbt<span>Amikom</span></p>
+      <div class="menu-toggle" id="menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul id="menu-box">
+        <li><a href="index.html">Main</a></li>
+        <li><a href="index.html">Schedules</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a href="akun.html">
+            <img src="image/profil.png" alt="Profile Picture" />
+            <i class="fa fa-angle-down"></i>
+          </a>
+        </li>
+        <li><b><a href="signout.html">Sign Out</a></b></li>
+      </ul>
+    </nav>
+
+    <div class="content">
+      <div class="container">
+        <div class="image-container">
+          <img src="image/suzzanna.jpg" alt="Suzzanna" />
+          <a href="tiket.html" target="_blank" class="ticket-link">
+            <button class="buy-ticket">Buy ticket</button>
+          </a>
+        </div>
+      <div class="info-container">
+        <h1>SUZZANNA Malam Jumat Kliwon</h1>
+        <p><strong>Genre</strong>: Horror, Thriller</p>
+        <p><strong>Sutradara</strong>: Guntur Soeharjanto</p>
+        <p><strong>Pemeran</strong>: Luna Maya, Achmad Megantara</p>
+        <p><strong>Durasi</strong>: 132 menit</p>
+        <a
+          href="https://youtu.be/W3OiJi8UyUk?si=xmlrFLWvoBB6ze43"
+          class="watch-trailer"
+          >Watch Trailer</a
+        >
+        <h2>Sinopsis:</h2>
+        <p>
+          Berlatar tahun 1986 di sebuah desa di Jawa Timur, Suzzanna dan Surya
+          adalah sepasang kekasih yang akan menikah, namun hubungan mereka
+          kandas karena utang orangtua Suzzanna kepada Raden Aryo, orang terkaya
+          di desa mereka, yang bersedia menganggap utangnya lunas jika Suzzanna
+          menjadi istri keduanya. Karena tak ada pilihan lain, Suzzanna setuju
+          dan memutuskan hubungannya dengan Surya. Tidak lama setelah menikah,
+          Suzzanna mengandung anak pertama Raden Aryo. Minati, istri pertama
+          Raden Aryo yang tidak bisa memiliki keturunan, merasa cemburu dan
+          dibantu oleh dukun kepercayaannya mencoba menyantet Suzzanna yang
+          sedang hamil besar, sehingga Suzzanna tewas akibat santet tersebut
+          tepat pada Malam Jumat Kliwon.
+        </p>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuIcon = document.getElementById("menu");
+        const menuBox = document.getElementById("menu-box");
+
+        menuIcon.addEventListener("click", function () {
+          menuBox.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #a80000 0%, #000000 100%);
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      width: 320px;
+      padding: 25px;
+      background: rgba(0, 0, 0, 0.85);
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      text-align: center;
+    }
+
+    .logo-box {
+      margin-bottom: 25px;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      margin: 0;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo span {
+      color: #ff5722;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 22px;
+      color: #eaeaea;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #cccccc;
+      text-align: left;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: calc(100% - 24px);
+      padding: 12px;
+      margin-bottom: 18px;
+      border: none;
+      border-radius: 6px;
+      box-sizing: border-box;
+      background-color: #333;
+      color: #ffffff;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      outline: none;
+      background-color: #444;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background-color: #e50914;
+      color: #ffffff;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #f40612;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-box">
+      <p class="logo">
+        shbt<span>Amikom</span>
+        <h2></h2>
+        <h3>Log In / Sign In</h3>
+      </p>
+    </div>
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required />
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required />
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      
+      localStorage.setItem("loggedIn", "true");
+      window.location.href = "index.html"; 
+    });
+  </script>
+</body>
+</html>

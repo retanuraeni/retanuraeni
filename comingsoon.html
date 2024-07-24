@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coming Soon</title>
+    <style>
+        nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1f1f1f;
+  padding: 10px 20px;
+  border-bottom: 2px solid #ff1717;
+}
+
+nav .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff1717;
+}
+
+nav .logo span {
+  color: #fff;
+}
+
+nav #menu {
+  display: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ff1717;
+}
+
+nav ul li span {
+  display: flex;
+  align-items: center;
+}
+
+nav ul li span img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  nav #menu {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: #1f1f1f;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 200px;
+    border: 1px solid #ff1717;
+  }
+
+  nav ul li {
+    margin: 0;
+    text-align: right;
+    padding: 10px 20px;
+  }
+
+  nav ul li a {
+    display: block;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+}
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background: #121212;
+        color: #fff;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 0 20px;
+      }
+
+      .header {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .header .coming-soon {
+        background-color: #ff1717;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        display: inline-block;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .card {
+        background-color: #1f1f1f;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        background-color: #333;
+        margin-bottom: 10px;
+      }
+
+      .card-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      .view-details {
+        padding: 10px 20px;
+        background-color: #ff1717;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+      }
+
+      .view-details:hover {
+        background-color: #e61616;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .modal-content {
+        background-color: #333;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        border-radius: 10px;
+        color: #fff;
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      @media (max-width: 1024px) {
+        .grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .modal-content {
+          width: 90%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .coming-soon {
+          font-size: 16px;
+        }
+
+        .card img {
+          height: 200px;
+        }
+
+        .card-title {
+          font-size: 14px;
+        }
+
+        .view-details {
+          font-size: 12px;
+        }
+
+        .modal-content {
+          width: 95%;
+        }
+      }
+    </style>
+  </head>
+
+  <nav>
+    <p class="logo">
+      shbt<span>Amikom<span>
+    </p>
+      
+      <i class="fa fa-bars" id="menu"></i>
+      
+    <ul id="menu-box">
+      <div class="marker"></div>
+      <li><a href="index.html">main</a></li>
+      <li><a href="#card">schedules</a></li>
+      <li><a href="contact.html">contact</a></li>
+      <li><span><a href="akun.html"><img src="image/profil.png"> <i class="fa fa-angle-down"></i></span></a></li>
+      <li><b><a href="signout.html" style="color: #ffffff; text-decoration: none;">sign out</a></b></li>
+    </ul>
+      
+  </nav>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="coming-soon">COMING SOON</div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <img src="image/4mantan.jpg" alt="4 mantan" />
+          <div class="card-title">4 MANTAN</div>
+          <button
+            class="view-details"
+            data-title="4 MANTAN"
+            data-details="Sara (Ranty Maria), Airin (Melanie Berentz), Rachel (Melayu Nicole), dan Amara (Denira Wiraguna), empat gadis dengan latar belakang berbeda yang dipertemukan oleh berita kematian mantan pacar mereka, Alex (Jeff Smith). Dalam suasana duka yang canggung, mereka menerima surat wasiat dari Alex, menuduh salah satu dari mereka sebagai pembunuh.
+            Mereka berempat sibuk mencari siapa yang mengirim surat tersebut, bertanya-tanya apakah tuduhan itu benar atau hanya prank. Ketakutan dan teror terus menghantui mereka saat mereka mencoba menguak misteri kematian Alex. Siapakah pembunuh Alex sebenarnya?"
+          >
+            Sinopsis
+          </button>
+        </div>
+        <div class="card">
+          <img src="image/jinkhodam.jpg" alt="jinkhodam" />
+          <div class="card-title">JIN KHODAM</div>
+          <button
+            class="view-details"
+            data-title="Jin Khodam"
+            data-details="Bagas (Boy Hamzah) kembali ke kampungnya setelah lama di pondok pesantren untuk menghidupkan kegiatan keagamaan dan meluruskan norma sosial yang hilang. Bersama sahabatnya, Ayu (Haviza Devi Anjani) dan Hadi (Azul Pratama), usaha Bagas menghadapi penentangan ekstrem dari Wirya (Ray Sahetapy), orang kaya di kampung yang merasa terganggu. Wirya dan anak buahnya memutuskan menyingkirkan Bagas dan mempersekusinya hingga tewas, lalu membuang jenazahnya ke sungai. Namun, mereka terkejut mendengar shalawat Asyghil yang biasa dilantunkan Bagas dari masjid. Saat mendatangi masjid, mereka ketakutan melihat Bagas masih hidup. Ketakutan bertambah saat dua di antara mereka ditemukan tewas secara mengerikan. Teror Bagas yang mengendarai sepeda dan membunyikan belnya terus menghantui mereka."
+          >
+            Sinopsis
+          </button>
+        </div>
+        <div class="card">
+          <img src="image/ronggeg.jpeg" alt="ronggeg" />
+          <div class="card-title">RONGGENG KEMATIAN</div>
+          <button
+            class="view-details"
+            data-title="Ronggeng Kematian"
+            data-details="Sebagai tradisi desa, Sulastri, penari ronggeng paling unggul, diutus menghibur empat mahasiswa KKN yang berjasa: Adit, Ricky, Aksan, dan Yudi. Tarian Sulastri memikat mereka hingga larut malam. Namun, nasib malang menimpa Sulastri ketika ia diperkosa dan dibunuh secara brutal oleh salah satu dari mereka. Adit, Ricky, Aksan, dan Yudi saling menutupi kejadian tersebut sambil saling mencurigai karena tidak mengetahui siapa pembunuh sebenarnya, mengingat mereka berada di bawah pengaruh alkohol saat kejadian. Meski begitu, Sulastri bertekad membalaskan dendamnya."
+          >
+            Sinopsis
+          </button>
+        </div>
+        <div class="card">
+          <img src="image/qodrat.jpeg" alt="qodrat" />
+          <div class="card-title">QODRAT</div>
+          <button
+            class="view-details"
+            data-title="QODRAT"
+            data-details="Berpuluh-puluh tahun lalu, Ustaz Qodrat (Vino G. Bastian) selaku pemilik ilmu rukiah, gagal merukiah Alif Al-Fatanah (Jason Bangun), anaknya sendiri, yang dirasuki setan bernama Assuala. Qodrat pun memutuskan untuk pulang ke pesantren di desa tempat ia menuntut ilmu. Namun, ketika sampai di sana, Qodrat justru kebingungan karena pesantren tersebut diisi oleh gangguan-gangguan yang tak dapat dijelaskan. Hal ini mengakibatkan Qodrat harus merukiah Alif Amri (Keanu Azka), anak bungsu Yasmin (Marsha Timothy), yang memiliki kesamaan nama dengan almarhum anaknya."
+          >
+            Sinopsis
+          </button>
+        </div>
+        <div class="card">
+          <img src="image/nussa.jpeg" alt="nussa" />
+          <div class="card-title">NUSSA</div>
+          <button
+            class="view-details"
+            data-title="NUSSA"
+            data-details="Nussa (Muzakki Ramdhan), si juara bertahan science fair, ingin kembali memenangkan lomba dengan roket rancangannya didampingi oleh Abba. Namun, eksperimen roketnya telah gagal, dan teman-teman beralih memperhatikan kecanggihan roket Jonni (Ali Fikry), anak baru di sekolah sekaligus rival lomba baginya. Berhadapan dengan rival yang lebih unggul, serta kabar bahwa Abba tak bisa pulang membuat Nussa terpukul. Mampukah Nussa mewujudkan mimpinya menjadi juara kembali di tengah situasi seperti ini?"
+          >
+            Sinopsis
+          </button>
+        </div>
+        <div class="card">
+          <img src="image/sherina2.jpeg" alt="sherina 2" />
+          <div class="card-title">PETUALANGAN SHERINA 2</div>
+          <button
+            class="view-details"
+            data-title=" Petualangan SHERINA 2"
+            data-details="Sherina dewasa, seorang jurnalis NEX TV, yang bersama kameramennya, Aryo, awalnya merencanakan peliputan di Swiss namun dipindahkan ke Kalimantan untuk meliput isu lingkungan hidup. Di sana, ia bertemu kembali dengan Sadam, sahabat lamanya yang kini menjadi program manager di LSM konservasi hutan. Mereka bekerja sama untuk meliput pelepasliaran orang utan, namun masalah timbul ketika anak orang utan bernama Sayu diculik oleh komplotan penjahat yang dipimpin Dedi, atas perintah pasangan Syailendra dan Ratih, yang ingin mengoleksi satwa liar sebagai pajangan. Sherina dan Sadam mengejar Dedi untuk menyelamatkan Sayu, sambil mengenang masa kecil dan menyelidiki alasan perpisahan mereka selama bertahun-tahun. Mereka menghadapi rintangan dari medan yang sulit, musuh yang tangguh, dan perbedaan pendapat di antara mereka."
+          >
+            Sinopsis
+          </button>
+        </div>
+        <div class="card">
+          <img src="image/agaklaen.jpg" alt="agak laen" />
+          <div class="card-title">AGAK LAEN</div>
+          <button
+            class="view-details"
+            data-title="AGAK LAEN"
+            data-details="Empat petugas rumah hantu bernama Boris, Jegel, Bene, dan Oki. Dikisahkan bahwa keempatnya bertugas sebagai hantu yang menakut-nakuti pengunjung rumah hantu yang ada di sebuah pasar malam. Namun, alih-alih menyeramkan dan membuat para pengunjung terkesan, rumah hantu tersebut justru sama sekali tidak menunjukkan kesan yang seram. Bahkan hantu-hantu di dalamnya pun tidak berhasil membuat pengunjung terkejut maupun ketakutan. Situasi tersebut membuat pihak pengelola wahana mencoba sebisa mungkin untuk menghadirkan wahana rumah hantu yang menyeramkan."
+          >
+            Sinopsis
+          </button>
+        </div>
+        <div class="card">
+          <img src="image/aquaman.jpg" alt="aquaman" />
+          <div class="card-title">AQUAMAN AND THE LOST KINGDOM</div>
+          <button
+            class="view-details"
+            data-title="Aquaman and the Lost Kingdom"
+            data-details="Melanjutkan petualangan Arthur Curry, yang kini sepenuhnya memeluk perannya sebagai Aquaman, Raja Atlantis. Menghadapi ancaman baru dan musuh lama, Arthur harus berjuang untuk melindungi kerajaannya dan seluruh dunia dari kekuatan gelap yang berusaha menghancurkan perdamaian. Ketika sekutu lama seperti Mera dan saudaranya Orm terlibat dalam konflik, Arthur menemukan sekutu-sekutu baru dan memulai pencarian untuk menemukan Kerajaan yang Hilang, yang diyakini menyimpan kekuatan kuno yang bisa mengubah jalannya pertempuran. Dalam perjalanannya, Arthur harus mengatasi tantangan besar dan menguji batas kekuatannya untuk menyelamatkan Atlantik dan permukaan dunia dari kehancuran."
+          >
+            Sinopsis
+          </button>
+        </div>
+        <div class="card">
+          <img src="image/journey2.jpeg" alt="journey 2" />
+          <div class="card-title">JOURNEY 2</div>
+          <button
+            class="view-details"
+            data-title="Journey 2"
+            data-details="Mengikuti petualangan Sean Anderson (Josh Hutcherson) yang, setelah menerima sinyal darurat dari pulau misterius, meyakini bahwa itu berasal dari kakeknya yang hilang, Alexander (Michael Caine). Ditemani pacarnya Kailani (Vanessa Hudgens), ayah tirinya Hank (Dwayne Johnson), dan pilot helikopter Gabato (Luis Guzmán), mereka menemukan pulau penuh makhluk aneh dan rahasia tersembunyi. Dalam pencarian Alexander dan cara pulang, mereka menghadapi berbagai bahaya dan makhluk fantastis, yang menguji keberanian serta memperkuat hubungan keluarga antara Sean dan Hank. Mereka harus bekerja sama untuk menyelamatkan diri dari pulau yang tenggelam dan kembali ke rumah dengan selamat."
+          >
+            Sinopsis
+          </button>
+        </div>
+        <div class="card">
+          <img src="image/mangkujiwo.jpg" alt="mangkujiwo" />
+          <div class="card-title">MANGKUJIWO 2</div>
+          <button
+            class="view-details"
+            data-title="Mangkujiwo 2"
+            data-details="Setelah peristiwa kematian Cokrokusumo, Uma berusaha melawan trauma sambil mencari jawaban atas misteri keterlibatan Kuntilanak dalam hidupnya. Sementara itu, Brotoseno, Nyi Kenanga, dan Karmila menempuh cara keji untuk membawa Mangkujiwo ke puncak kejayaan, di mana darah akan kembali tumpah."
+          >
+            Sinopsis
+          </button>
+        </div>
+        <div class="card">
+          <img src="image/toystory4.webp" alt="toystory4" />
+          <div class="card-title">TOY STORY 4</div>
+          <button
+            class="view-details"
+            data-title="TOY STORY 4"
+            data-details="Mengisahkan tentang Woody dan teman-teman mainannya yang berpetualang setelah mereka ditinggalkan oleh pemilik mereka yang lama, Andy, dan kini milik Bonnie. Saat Bonnie membuat mainan baru bernama Forky dari bahan-bahan sederhana, Woody merasa bertanggung jawab untuk melindungi Forky, meskipun Forky tidak menyadari bahwa dia sekarang adalah mainan yang dicintai Bonnie. Perjalanan mereka membawa mereka ke sebuah petualangan yang menghadirkan pertemuan kembali dengan Bo Peep, mainan yang pernah hilang, dan membuka Woody pada pemahaman baru tentang arti kebebasan dan kesetiaan."
+          >
+            Sinopsis
+          </button>
+        </div>
+        <div class="card">
+          <img src="image/izinkan.jpeg" alt="Tuhan izinkan aku berdosa" />
+          <div class="card-title">TUHAN, IZNIKAN AKU BERDOSA</div>
+          <button
+            class="view-details"
+            data-title="Tuhan, Izinkan Aku Berdosa"
+            data-details="Setelah menghabiskan masa mudanya untuk melayani umat dan orang-orang saleh yang telah diajarkan untuk dihormatinya sejak kecil, serangkaian kehilangan dan pengkhianatan mendorong Kiran ke tepi jurang. Karena kecewa, ia mengambil kembali pikiran dan tubuhnya dari agama untuk digunakannya sendiri-dan disalahgunakan, dalam sebuah tindakan pembangkangan. Semua tampak baik-baik saja bagi Kiran jika bukan karena fakta bahwa tindakan pemberontakannya anehnya ternyata tidak cukup memuaskan. Jadi dia memutuskan mengubah cara mainnya dan ini menjerumuskannya lebih jauh ke dalam bahaya yang akan membawanya ke sebuah kebijaksanaan, atau ke dalam jurang yang tak berdasar."
+          >
+            Sinopsis
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-details"></p>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var modal = document.getElementById("modal");
+        var modalTitle = document.getElementById("modal-title");
+        var modalDetails = document.getElementById("modal-details");
+        var closeModal = document.getElementsByClassName("close")[0];
+
+        document.querySelectorAll(".view-details").forEach(function (button) {
+          button.onclick = function () {
+            var title = this.getAttribute("data-title");
+            var details = this.getAttribute("data-details");
+
+            modalTitle.textContent = title;
+            modalDetails.textContent = details;
+
+            modal.style.display = "block";
+          };
+        });
+
+        closeModal.onclick = function () {
+          modal.style.display = "none";
+        };
+
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+      });
+    </script>
+  </body>
+</html>

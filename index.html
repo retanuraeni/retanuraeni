@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Website Booking Tiket Bioskop</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+ <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+
+<header>
+    <nav>
+    <p class="logo">
+      shbt<span>Amikom<span>
+    </p>
+      
+      <i class="fa fa-bars" id="menu"></i>
+      
+    <ul id="menu-box">
+      <div class="marker"></div>
+      <li><a href="index.html">main</a></li>
+      <li><a href="#card">schedules</a></li>
+      <li><a href="contact.html">contact</a></li>
+      <li><span><a href="akun.html"><img src="image/profil.png"> <i class="fa fa-angle-down"></i></span></a></li>
+      <li><b><a href="signout.html" style="color: #ffffff; text-decoration: none;">sign out</a></b></li>
+    </ul>
+      
+  </nav>
+  
+    <div class="popular-movie-slider">
+      
+      <img src="image/suzzanna.jpg" class="poster">
+      
+      <div class="popular-movie-slider-content">
+        <p class="release">2023</p>
+        <h2 class="movie-name">SUZZANNA Malam Jumat Kliwon</h2>
+        <ul class="category">
+          <p>Horror</p>
+          <li>Thriller</li>
+        </ul>
+        <p class="desc">Berlatar tahun 1986 di sebuah desa di Jawa Timur, Suzzanna dan Surya adalah sepasang kekasih yang akan menikah, namun hubungan mereka kandas karena utang orangtua Suzzanna kepada Raden Aryo, orang terkaya di desa mereka, yang bersedia menganggap utangnya lunas jika Suzzanna menjadi istri keduanya. Karena tak ada pilihan lain, Suzzanna setuju dan memutuskan hubungannya dengan Surya. Tidak lama setelah menikah, Suzzanna mengandung anak pertama Raden Aryo. Minati, istri pertama Raden Aryo yang tidak bisa memiliki keturunan, merasa cemburu dan dibantu oleh dukun kepercayaannya mencoba menyantet Suzzanna yang sedang hamil besar, sehingga Suzzanna tewas akibat santet tersebut tepat pada Malam Jumat Kliwon.</p>
+        
+        <div class="movie-info">
+          <i class="fa fa-clock-o"> &nbsp;&nbsp;&nbsp;<span>132 min.</span></i> 
+          <i class="fa fa-volume-up"> &nbsp;&nbsp;&nbsp;<span>Subtitles</span></i>
+          <i class="fa fa-circle"> &nbsp;&nbsp;&nbsp;<span>Imdb: <b>9.1/10</b></span></i>
+        </div>
+        
+        <div class="movie-btns">
+          <button><a href="https://youtu.be/W3OiJi8UyUk?si=xmlrFLWvoBB6ze43" style="color: white; text-decoration: none;"><i class="fa fa-play"></i> &nbsp; Watch trailer</button></a>
+          <button class="read-more"><a href="suzzanna.html" style="color: white; text-decoration: none;"><i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i>&nbsp; Read more</button></a>
+        </div>
+        
+      </div>
+      
+    </div>
+    
+</header>
+
+<section>
+  
+  <div class="movie-ticket-book">
+    <div class="choose-date">
+      <h3 class="heading">DATE</h3>
+      <div class="wrapper">
+        <div class="carousel owl-carousel">
+          <div class="card card-1">
+            <p>JUL</p>
+            <p>MON</p>
+          </div>
+          <div class="card card-2">
+            <p>JUL</p>
+            <p>TUE</p>
+          </div>
+          <div class="card card-3">
+            <p>JUL</p>
+            <p>WED</p>
+          </div>
+          <div class="card card-4">
+            <p>JUL</p>
+            <p>THU</p>
+          </div>
+          <div class="card card-5">
+            <p>JUL</p>
+            <p>FRI</p>
+          </div>
+        </div>
+        <div class="marker"></div>
+      </div>
+    </div>
+    <div class="choose-time">
+      <h3 class="heading">AVAILABLE TIMES:</h3>
+      <div class="wrapper">
+        <div class="carousel owl-carousel">
+          <div class="card card-1">
+            <p>WIB</p>
+            <p>14:45</p>
+          </div>
+          <div class="card card-2">
+            <p>WIB</p>
+            <p>11:45</p>
+          </div>
+          <div class="card card-3">
+            <p>WIB</p>
+            <p>12:15</p>
+          </div>
+          <div class="card card-4">
+            <p>WIB</p>
+            <p>13:00</p>
+          </div>
+        </div>
+        <div class="marker"></div>
+      </div>
+    </div>
+    <a href="tiket.html" target="_blank" class="ticket-link">
+      <button>Buy ticket</button>
+    </a>
+  </div>
+  
+  
+  <div class="filter-search-box">
+    
+    <div class="filters-box">
+      
+      <div class="all-filters filters">
+        Now Showing <a href="#card"><i class="fa fa-angle-down" style="color: white
+        ; text-decoration: none;"></i></a>
+      </div> 
+      
+      <div class="category-filters filters">
+        <a href="comingsoon.html" style="color: white; text-decoration: none;">Coming Soon</a>
+      </div> 
+      
+    </div>
+    
+    <div class="search-filters">
+        <input type="text" placeholder="Search">
+        <i class="fa fa-search"></i>
+      </div> 
+    
+    <div class="search-bar">
+      <div class="bar"></div>
+    </div>
+    
+  </div>
+  
+  
+  <div class="movie-card-section" id="card">
+    
+    <div class="card">
+        <a href="ipar.html">
+            <img src="image/iparaldmaut.webp" alt="Ipar adalah Maut Movie Poster">
+          </a>
+      
+      <div class="card-content">
+        <p class="movie-name">
+          ipar adalah maut
+        </p>
+        
+        <div class="movie-info">
+          <p class="time">11:30 <span>14:45</span> 16:05 <span>18:40</span> 21:00 23:15</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <a href="13bomjkt.html">
+            <img src="image/13bomjkt.jpg" alt="13 Bom di Jakarta">
+          </a>
+      
+      <div class="card-content">
+        <p class="movie-name">
+          13 bom di jakarta
+        </p>
+        
+        <div class="movie-info">
+          <p class="time">11:30 <span>14:45</span> 16:05 18:40 <span>21:00</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <a href="ancika.html">
+            <img src="image/ancika.jpg" alt="Ancika">
+          </a>
+      
+      <div class="card-content">
+        <p class="movie-name">
+          ancika: dia yang bersamaku 1995
+        </p>
+        
+        <div class="movie-info">
+          <p class="time">11:30 14:45 <span>16:05 18:40</span> 21:00 23:15</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <a href="sleepcall.html">
+            <img src="image/sleepcall.jpg" alt="Sleep Call">
+          </a>
+      
+      <div class="card-content">
+        <p class="movie-name">
+          sleep call
+        </p>
+        
+        <div class="movie-info">
+          <p class="time">11:30 16:05 18:40 21:00 <span>23:15</span></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card">
+        <a href="duahatibiru.html">
+            <img src="image/duahatibiru.jpg" alt="Dua Hati Biru">
+          </a>
+      
+      <div class="card-content">
+        <p class="movie-name">
+          dua hati biru
+        </p>
+        
+        <div class="movie-info">
+          <p class="time"><span>11:30 14:45</span> 16:05 <span>18:40</span> 21:00</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <a href="architecturlove.html">
+            <img src="image/architectureoflove.jpg" alt="Architecture Of Love">
+          </a>
+      
+      <div class="card-content">
+        <p class="movie-name">
+          the architectur of love
+        </p>
+        
+        <div class="movie-info">
+          <p class="time">11:30 <span>14:45 16:05</span> 18:40 21:00</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <a href="ranah3warna.html">
+            <img src="image/ranah3warna.jpg" alt="Ranah 3 Warna">
+          </a>
+      
+      <div class="card-content">
+        <p class="movie-name">
+          ranah 3 warna
+        </p>
+        
+        <div class="movie-info">
+          <p class="time">11:30 18:40 <span>21:00</span> 23:15</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <a href="thedoll3.html">
+            <img src="image/thedoll3.jpg" alt="The Doll 3">
+          </a>
+      
+      <div class="card-content">
+        <p class="movie-name">
+          the doll 3
+        </p>
+        
+        <div class="movie-info">
+          <p class="time"><span>11:30 16:05</span> 18:40 21:00 23:15</p>
+        </div>
+      </div>
+    </div>
+    
+
+    
+  </div>
+  
+  <div class="show">
+    <div class="show-bar">
+      <div class="bar"></div>
+    </div>
+     <button><a href="comingsoon.html" style="color: white; text-decoration: none;">Show more</button></a>
+  </div>
+  
+  
+</section>
+
+<footer>
+  
+  <div class="logo-box">
+    <p class="logo">
+      shbt<span>Amikom</span>
+    </p>
+    <p><i class="fa fa-copyright"></i> 2024 shbt.amikom</p>
+  </div>
+  
+  <ul id="menu-box">
+    <div class="marker"></div>
+    <li><a href="index.html">main</a></li>
+    <li><a href="#card">schedules</a></li>
+    <li><a href="contact.html">contact</a></li>
+  </ul>
+
+
+<div class="socail-box">
+  <i class="fa fa-facebook"></i>
+  <i class="fa fa-twitter"></i>
+  <i class="fa fa-instagram"></i>
+</div>
+  
+</footer>
+
+  <script  src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akun Saya - Website Tiket Bioskop</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #330000, #660000);
+        color: #fff;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 1.5em;
+        cursor: pointer;
+        flex-direction: column;
+      }
+
+      .menu-toggle div {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 3px 0;
+        transition: 0.3s;
+      }
+
+      @media (max-width: 768px) {
+        nav ul {
+          flex-direction: column;
+          display: none;
+          width: 100%;
+          background: #990000;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul.active {
+          display: flex;
+        }
+
+        nav ul li {
+          margin: 10px 0;
+          text-align: center;
+        }
+
+        nav .menu-toggle {
+          display: flex;
+        }
+
+        nav .menu-toggle.active div:nth-child(1) {
+          transform: rotate(-45deg);
+          background: #fff;
+        }
+
+        nav .menu-toggle.active div:nth-child(2) {
+          opacity: 0;
+        }
+
+        nav .menu-toggle.active div:nth-child(3) {
+          transform: rotate(45deg);
+          background: #fff;
+        }
+
+        nav .logo {
+          flex: 1;
+        }
+      }
+
+      nav {
+        background: #990000;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      nav .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li {
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1em;
+        position: relative;
+      }
+
+      nav ul li a::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #fff;
+        transition: width 0.3s;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+      }
+
+      nav ul li a:hover::after {
+        width: 100%;
+      }
+
+      nav ul li img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 1.5em;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        nav ul {
+          flex-direction: column;
+          display: none;
+          width: 100%;
+          background: #990000;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul.active {
+          display: flex;
+        }
+
+        nav ul li {
+          margin: 10px 0;
+        }
+
+        nav .menu-toggle {
+          display: block;
+          color: #fff;
+        }
+
+        nav .logo {
+          flex: 1;
+        }
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #4d0000;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+      }
+
+      .section {
+        margin-bottom: 20px;
+      }
+
+      .section h2 {
+        border-bottom: 2px solid #990000;
+        padding-bottom: 10px;
+      }
+
+      .section button {
+        background: #990000;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .section button:hover {
+        background: #800000;
+      }
+
+      .section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .section ul li {
+        background: #660000;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        transition: background 0.3s;
+      }
+
+      .section ul li:hover {
+        background: #4d0000;
+      }
+
+      .section a {
+        color: #990000;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .section a:hover {
+        color: #d44747;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #4d0000;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+        border-radius: 8px;
+        color: #fff;
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .modal-content h2 {
+        margin-top: 0;
+      }
+
+      .modal-content form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .modal-content label {
+        margin-top: 10px;
+      }
+
+      .modal-content input {
+        margin-bottom: 10px;
+        padding: 5px;
+        border-radius: 4px;
+        border: none;
+      }
+
+      .modal-content button {
+        margin-top: 10px;
+        background: #990000;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .modal-content button:hover {
+        background: #800000;
+      }
+
+      .pemesanan-item {
+        background: #660000;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+      }
+
+      .pemesanan-item h3 {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <p class="logo">shbt<span>Amikom</span></p>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul>
+        <li><a href="index.html">Main</a></li>
+        <li><a href="index.html">Schedules</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a href="akun.html">
+            <img src="image/profil.png" alt="Profile Picture" />
+            <i class="fa fa-angle-down"></i>
+          </a>
+        </li>
+        <li>
+          <b>
+            <a href="signout.html" style="color: #ffffff; text-decoration: none"
+              >Sign Out</a
+            >
+          </b>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <h1>Dashboard Akun</h1>
+
+      <div class="section">
+        <h2>Profil Pengguna</h2>
+        <p>Nama: Asahi Gantenk</p>
+        <p>Email: sahoy@email.com</p>
+        <p>Nomor Telepon: 081234567890</p>
+        <button onclick="openModal('ubahProfilModal')">Ubah Profil</button>
+      </div>
+
+      <div class="section">
+        <h2>Riwayat Pemesanan</h2>
+        <ul>
+          <li>Film: Pengabdi Setan 3 | Tanggal: 01-01-2023 | Waktu: 19:00</li>
+          <li>
+            Film: Spider-Man: No Way Home | Tanggal: 15-12-2023 | Waktu: 14:30
+          </li>
+        </ul>
+        <button onclick="openModal('detailPemesananModal')">
+          Detail Pemesanan
+        </button>
+      </div>
+
+      <div class="section">
+        <h2>Poin dan Reward</h2>
+        <p>Total Poin: 120</p>
+        <button onclick="openModal('lihatRewardModal')">Lihat Reward</button>
+      </div>
+
+      <div class="section">
+        <h2>Bantuan dan Dukungan</h2>
+        <p><a href="help.html">Pusat Bantuan</a></p>
+        <p><a href="contact.html">Hubungi Kami</a></p>
+      </div>
+    </div>
+
+    <!-- Modal Ubah Profil -->
+    <div id="ubahProfilModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('ubahProfilModal')"
+          >&times;</span
+        >
+        <h2>Ubah Profil</h2>
+        <form>
+          <label for="nama">Nama:</label>
+          <input type="text" id="nama" name="nama" value="Asahi Gantenk" />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" value="sahoy@email.com" />
+
+          <label for="telepon">Nomor Telepon:</label>
+          <input type="tel" id="telepon" name="telepon" value="081234567890" />
+
+          <button type="submit">Simpan Perubahan</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Detail Pemesanan -->
+    <div id="detailPemesananModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('detailPemesananModal')"
+          >&times;</span
+        >
+        <h2>Detail Pemesanan</h2>
+        <div class="pemesanan-item">
+          <h3>Pengabdi Setan 3</h3>
+          <p>Tanggal: 01-01-2023</p>
+          <p>Waktu: 19:00</p>
+          <p>Kursi: G1</p>
+          <p>Total Harga: Rp 40.000</p>
+        </div>
+        <div class="pemesanan-item">
+          <h3>Spider-Man: No Way Home</h3>
+          <p>Tanggal: 15-12-2023</p>
+          <p>Waktu: 14:30</p>
+          <p>Kursi: J8, J9, J10</p>
+          <p>Total Harga: Rp 120.000</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Lihat Reward -->
+    <div id="lihatRewardModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('lihatRewardModal')"
+          >&times;</span
+        >
+        <h2>Poin dan Reward</h2>
+        <p>Total Poin Anda: 120</p>
+        <h3>Reward yang Tersedia:</h3>
+        <ul>
+          <li>Popcorn Gratis (100 poin)</li>
+          <li>Tiket Gratis (200 poin)</li>
+          <li>Merchandise Eksklusif (300 poin)</li>
+        </ul>
+        <button>Tukarkan Poin</button>
+      </div>
+    </div>
+
+    <script>
+      function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+      }
+
+      function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+      }
+
+      function toggleMenu() {
+        const navLinks = document.querySelector("nav ul");
+        const menuToggle = document.querySelector(".menu-toggle");
+        navLinks.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
